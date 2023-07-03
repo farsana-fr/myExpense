@@ -1,0 +1,107 @@
+<div class="container text-center bg-light mb-5">
+    <h1>{{bName}}</h1>
+    <button type="button" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#exampleModal">
+        + Cash In
+      </button>
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">{{bName.date}}</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form action="">
+                <input type="text" name="amtName" id="amtID" placeholder="Enter Amount" [(ngModel)]="amount">
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="addTo()">Enter</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <button type="button" class="btn btn-warning ms-3" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+        - Cash Out
+      </button>
+      <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel1">{{bName.date}}</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form action="">
+                <input type="text" name="amtName" id="amtID" placeholder="Enter Amount" [(ngModel)]="amount">
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="takeFrom()">Enter</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    
+
+    <!-- <div *ngFor="let i of arr">
+        <div *ngIf="i>0">
+            <div class="text-success">{{i}}</div>
+        </div>
+        <div *ngIf="i<0">
+            <div class="text-danger">{{i}}</div>
+        </div>
+    </div> -->
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Type</th>
+            <th scope="col">Amount</th>
+          </tr>
+        </thead>
+        <!-- <tbody>
+            <div *ngFor="let i of arr">
+                <div *ngIf="i>0">
+                    <tr>
+                        <th>In</th>
+                        <td>{{i}}</td>
+                      </tr>
+                </div>
+                <div *ngIf="i<0">
+                    <tr>
+                        <th >Out</th>
+                        <td>{{i}}</td>
+                      </tr>
+                </div>
+          
+          </div>
+          </tbody> -->
+
+          <tbody *ngFor="let i of arr">
+                <tr *ngIf="i>0">
+                    
+                        <th>In</th>
+                        <td>{{i}}</td>
+                      
+                </tr>
+                <tr *ngIf="i<0">
+                    
+                        <th >Out</th>
+                        <td>{{i}}</td>
+                      
+                </tr>
+          
+          
+          </tbody>
+          </table>
+    <h3 class="mt-5 text-light bg-info"><strong>Total : {{total}}</strong></h3>
+</div>
+
+<button class="btn btn-danger ms-5" (click)="deleteBook()">Delete Book</button>
